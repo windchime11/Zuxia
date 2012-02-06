@@ -1,0 +1,20 @@
+</br></br></br></br>
+<%= form_for(@user) do |f| %>
+     <div class = "control-group">
+     <%= f.label "Your Name" %>
+     <%= f.text_field :name, :class =>"input-large" %>
+     </div>
+     <div class = "control-group">
+     <%= f.label "Email Address" %>
+     <%= f.text_field :email, :class =>"input-large" %>
+     </div>
+     <div class = "control-group">
+     <%= f.label "Password" %>
+     <%= f.password_field :password, :class =>"input-large" %>
+     </div>
+     <div class = "control-group">
+     <%= f.label "Retype to Confirm"  %>
+     <%= f.password_field :password_confirmation, :class =>"input-large"%>
+     </div>
+     <%= f.submit "Sign Up", :class =>"btn btn-primary" %>
+<% end %>

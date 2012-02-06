@@ -1,4 +1,20 @@
 Zuxia::Application.routes.draw do
+
+  get "users/new"
+
+  resources :users do
+  #     resources :comments, :sales
+  #     resource :seller
+  end
+
+  resources :sessions, :only => [:new, :create, :destroy]
+  
+  match '/signin', :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
+  match '/signup', :to=> 'users#new'
+  root :to => 'pages#home'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
