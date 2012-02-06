@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  report_id: 1
+  word: MyString
+  meaning: MyString
+  synonyms: MyString
+  sentence: MyString
+
+two:
+  report_id: 1
+  word: MyString
+  meaning: MyString
+  synonyms: MyString
+  sentence: MyString
