@@ -3,7 +3,13 @@ class User < ActiveRecord::Base
 	attr_accessor :password
 	attr_accessible :name, :email,:password,:password_confirmation
 
-email_allowed = /\A[+.\w\d\-\_]+@[a-z\d]+\.[a-z]+\z/i  
+  has_many :reports, :dependent => :destroy
+  has_many :reports_to_review,  :dependent => :destroy,
+                       :foreign_key => "reviewer_id",
+                       :class_name => "Report"
+
+
+  email_allowed = /\A[+.\w\d\-\_]+@[a-z\d]+\.[a-z]+\z/i  
 
   validates :name, :presence => true,
                    :length   => {:maximum => 40}
