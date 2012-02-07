@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @user_all = User.all
+    @allusers = User.all
     #@users = User.paginate(:page => params[:page])
   end
 

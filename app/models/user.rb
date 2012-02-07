@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
 	attr_accessor :password
 	attr_accessible :name, :email,:password,:password_confirmation
 
-  has_many :reports, :dependent => :destroy
+  has_many :reports, :dependent => :destroy,
+                    :foreign_key => "author_id"
+                       
   has_many :reports_to_review,  :dependent => :destroy,
                        :foreign_key => "reviewer_id",
                        :class_name => "Report"

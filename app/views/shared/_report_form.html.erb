@@ -1,0 +1,19 @@
+<%= form_for @report do |f|%>
+   <%=render 'shared/error_messages', :object => f.object %>
+     <div class = "control-group">
+     <%= f.label "Date For" %>
+     <div class = "controls">
+     <%= f.text_field :date_for, :class =>"span2" %>
+     </div>
+     </div>
+     <div class = "control-group">
+     <%= f.label "Reviewer's id" %>
+     <div class = "controls">
+     <%= f.text_field :reviewer_id, :class =>"span2" %>
+     </div>
+     </div>
+     <div class = "controls">
+     <%= f.submit "Submit", :class =>"btn btn-primary" %>
+     </div>
+
+<% end%>

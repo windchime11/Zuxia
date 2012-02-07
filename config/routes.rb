@@ -1,9 +1,10 @@
 Zuxia::Application.routes.draw do
 
-  get "users/new"
+
+  resources :reports, :only => [:new, :show, :create, :destroy]
 
   resources :users do
-  #     resources :comments, :sales
+  #     resources :reports
   #     resource :seller
   end
 

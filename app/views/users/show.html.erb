@@ -1,9 +1,61 @@
-</br></br></br></br>
-<div>
+<div class = "span8"><h3>Account Overview</h3></div>
 
+<div class = "span8">
+	<table class = "table table-striped">
+		<thead>
+		<tr>
+<td></td><td></td>
+		</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+			<td>Name</td>
+			<td><%= @user.name%></td>
+    		</tr>
+			<tr>
+			<td>Email</td>
+			<td><%= @user.email%></td>
+    		</tr>
+			<tr>
+			<td># of Reports Authored</td>
+			<td><%= @user.reports.length%></td>
+    		</tr>
+			<tr>
+			<td># of Reports with you as Reviewer</td>
+			<td><%= @user.reports_to_review.length%></td>
+    		</tr>
+
+    	</tbody>
+	</table>
 </div>
 
-<div>
+<div class = "span8">
+<h3 class="strong">Reports Authored</h3>
+<table class = "table table-striped">
+		<thead>
+    		<tr>
+	      	<th>Date For</th>
+	      	<th>Created At</th>
+    	  	<th>Reviewer</th>
+    		<th>Content</th>
+    		</tr>
+	  	</thead>
+  		<tbody>
+  		<% @user.reports.each do |report|%>
+			<tr>
+			<td><%=report.date_for%></td>
+			<td><%=report.created_at%></td>
+			<% if !User.find_by_id(report.reviewer_id).nil? %>
+			<td><%=User.find_by_id(report.reviewer_id).name%></td>
+			<% else %>
+			<td>Reviewer can not be found</td>
+			<% end %>
+			<td><i class="icon-arrow-right"></i><%=link_to "...", report%></td>
+    		</tr>
+    	<%end%>	
+    	</tbody>
+	</table>
 </div>
 <div>
 </div>
