@@ -1,0 +1,18 @@
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">	  
+      <ul class="nav">
+	    <li><%= link_to "Zuxia", root_path, :class =>"brand" %></li>
+	    <% if signed_in? %>
+   	    	<li><%= link_to "Profile", current_user %></li>   
+	    	<li><%= link_to "Create Report", new_report_path %></li>   
+	    	<li><%= link_to "Users", users_path%></li>
+	    	<li><%= link_to "Sign Out", signout_path, :method => :delete %></li>
+	    <% else %>
+	    	<li><%= link_to "Sign In", signin_path %></li>
+	    	<li><%= link_to "Sign Up", signup_path %></li>
+	    <% end %>
+	  </ul>
+	  </div>
+	</div>
+</div>
