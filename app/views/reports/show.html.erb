@@ -1,3 +1,25 @@
 <div class="span8">
-	<p>
+	<h3 class="strong">Reports Details</h3>
+	<table class = "table table-striped">
+		<thead>
+    		<tr>
+	      	<th></th>
+	      	<th></th>
+    		</tr>
+	  	</thead>
+  		<tbody>
+			<% @report.attributes.map do |k,v|%>
+			<tr>
+			<td><%=k.to_s%></td>
+			<td><%=v.to_s%></td>
+			</tr>
+			<% end%>
+			<tr>
+			<td>Words</td>
+			<td><%=@report.en_words.map {|t| t.word}.join(",")%></td>
+			</tr>
+			
+    	</tbody>
+	</table>
+
 </div>

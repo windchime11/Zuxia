@@ -12,6 +12,25 @@
      <%= f.text_field :reviewer_id, :class =>"span2" %>
      </div>
      </div>
+     <h3 class="bottom-margin10">English Words</h3>
+     
+     <div class="control-groups">
+       <table class = "table table-bordered" id="Ent">
+             <thead>
+                 <tr>
+                 <th><%= 'Word' %></th>
+                 <th><%= 'It means' %></th>
+                 <th><%= 'Synonyms' %></th>
+                 <th><%= 'Sentence' %></th>
+                 <th>Remove</th>
+                 </tr>
+             </thead>
+             <%= render :partial => 'shared/en_word_fields', 
+               :locals => {:form => f}%>
+       </table>
+          <p><%= link_to_add_fields_to_table "Add Words", f, :en_words %></p>
+     </div>  
+
      <div class = "controls">
      <%= f.submit "Submit", :class =>"btn btn-primary" %>
      </div>

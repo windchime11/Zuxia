@@ -1,0 +1,14 @@
+<tbody>
+  		<% @user.reports_to_review.each do |report|%>
+			<tr>
+			<td><%=report.date_for%></td>
+			<td><%=report.created_at%></td>
+			<% if !User.find_by_id(report.reviewer_id).nil? %>
+			<td><%=User.find_by_id(report.reviewer_id).name%></td>
+			<% else %>
+			<td>Reviewer can not be found</td>
+			<% end %>
+			<td><i class="icon-arrow-right"></i><%=link_to "...", report%></td>
+    		</tr>
+    	<%end%>	
+</tbody>

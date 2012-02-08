@@ -11,3 +11,26 @@
  *= require_self
  *= require_tree .
 */
+.hback {
+	background: url('/assets/home-background.jpg') scroll center top no-repeat;
+	padding: 350px 50px 0px 50px;
+	margin: 0px 40px 40px 40px;
+}
+
+.white {
+	font-size: 20px;
+  	line-height: 24px;
+  	color: #555;
+}
+
+.topm{
+	margin-top: 70px;	
+}
+
+.bottom-line {
+	border-bottom: 1px solid;
+}
+
+.bottom-margin10 {
+	margin-bottom: 10px;
+}

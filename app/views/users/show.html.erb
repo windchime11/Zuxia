@@ -1,13 +1,6 @@
-<div class = "span8"><h3>Account Overview</h3></div>
-
 <div class = "span8">
+	<h3 class="bottom-line">Account Overview</h3>
 	<table class = "table table-striped">
-		<thead>
-		<tr>
-<td></td><td></td>
-		</tr>
-		</thead>
-
 		<tbody>
 			<tr>
 			<td>Name</td>
@@ -22,42 +15,33 @@
 			<td><%= @user.reports.length%></td>
     		</tr>
 			<tr>
-			<td># of Reports with you as Reviewer</td>
+			<td># of Reports Assigned to You for Review</td>
 			<td><%= @user.reports_to_review.length%></td>
     		</tr>
-
     	</tbody>
 	</table>
-</div>
-
-<div class = "span8">
-<h3 class="strong">Reports Authored</h3>
-<table class = "table table-striped">
+	<h3 class="bottom-line">Reports Authored</h3>
+	<table class = "table table-striped">
 		<thead>
     		<tr>
 	      	<th>Date For</th>
 	      	<th>Created At</th>
     	  	<th>Reviewer</th>
-    		<th>Content</th>
+    		<th>Details</th>
     		</tr>
 	  	</thead>
-  		<tbody>
-  		<% @user.reports.each do |report|%>
-			<tr>
-			<td><%=report.date_for%></td>
-			<td><%=report.created_at%></td>
-			<% if !User.find_by_id(report.reviewer_id).nil? %>
-			<td><%=User.find_by_id(report.reviewer_id).name%></td>
-			<% else %>
-			<td>Reviewer can not be found</td>
-			<% end %>
-			<td><i class="icon-arrow-right"></i><%=link_to "...", report%></td>
-    		</tr>
-    	<%end%>	
-    	</tbody>
+  		<%=render 'shared/report_summary'%>
 	</table>
-</div>
-<div>
-</div>
-<div>
+	<h3 class="bottom-line">Reports Assigned to You for Review</h3>
+	<table class = "table table-striped">
+		<thead>
+    		<tr>
+	      	<th>Date For</th>
+	      	<th>Created At</th>
+    	  	<th>Author</th>
+    		<th>Details</th>
+    		</tr>
+	  	</thead>
+  		<%=render 'shared/report_summary2'%>
+	</table>
 </div>

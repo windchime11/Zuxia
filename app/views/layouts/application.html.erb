@@ -3,26 +3,21 @@
 <head>
   <title>Zuxia</title>
   <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag 'jquery' %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <%= render 'shared/header' %>>
-<div class="row">
-<p></br></p>                       
-<p></br></p>                                          
-</div>
-<div class="row">
-<p></br></p>                       
-<p></br></p>                       
-</div>
-<div class="row">
-<p></br></p>                       
-<p></br></p>                       
-</div>
-
-<div class="container">
+<% unless flash.nil? %>
+<% flash.each do |key,value| %>
+<div class="alert alert-<%=key%>"><%= value%></div>
+<% end %>
+<% end %>
+<div class="span8 offset2 topm">
 <%= yield %>
 </div>
+<p><%= p params if Rails.env.development?%></p>
 </body>
 </html>

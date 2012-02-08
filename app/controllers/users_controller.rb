@@ -14,9 +14,8 @@ class UsersController < ApplicationController
 
   def show 
     @user = User.find(params[:id])
-    @user_nil = @user.nil?
     @title = @user.name
-    #@microposts = @user.microposts.paginate(:page => params[:page])
+    
   end
 
   def index
