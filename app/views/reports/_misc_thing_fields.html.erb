@@ -1,0 +1,10 @@
+ <%= f.fields_for :misc_things do |miscthings_form| %>
+       <tr class="wordfields">
+            <td><%= miscthings_form.text_field :description %>
+            </td>
+            <td><%= miscthings_form.text_field :duration_hr %>
+            </td>
+            <td><%= link_to_remove_fields "remove", miscthings_form%>
+            </td>
+        </tr>
+<% end %>

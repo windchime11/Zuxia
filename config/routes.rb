@@ -2,7 +2,7 @@ Zuxia::Application.routes.draw do
 
 
   resources :reports, :only => [:new, :show, :create, :destroy]
-
+  resources :books, :only=>[:new, :create, :destroy,:update,:index]
   resources :users do
   #     resources :reports
   #     resource :seller

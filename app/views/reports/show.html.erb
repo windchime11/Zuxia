@@ -15,8 +15,17 @@
 			</tr>
 			<% end%>
 			<tr>
-			<td>Words</td>
+			<td>Vocabular</td>
 			<td><%=@report.en_words.map {|t| t.word}.join(",")%></td>
+			</tr>
+			<td>Readings</td>
+			<td><%=@report.book_readings.map {|t| t.book_id}.join(",")%></td>
+			</tr>
+			<td>Coding</td>
+			<td><%=@report.codings.map {|t| t.description + " in " + t.language + "for " + t.duration_hr.to_s + " hours"}.join(",")%></td>
+			</tr>
+			<td>Others</td>
+			<td><%=@report.misc_things.map {|t| t.description}.join(",")%></td>
 			</tr>
 			
     	</tbody>

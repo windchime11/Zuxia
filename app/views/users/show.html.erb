@@ -20,28 +20,36 @@
     		</tr>
     	</tbody>
 	</table>
-	<h3 class="bottom-line">Reports Authored</h3>
-	<table class = "table table-striped">
-		<thead>
-    		<tr>
-	      	<th>Date For</th>
-	      	<th>Created At</th>
-    	  	<th>Reviewer</th>
-    		<th>Details</th>
-    		</tr>
-	  	</thead>
-  		<%=render 'shared/report_summary'%>
-	</table>
-	<h3 class="bottom-line">Reports Assigned to You for Review</h3>
-	<table class = "table table-striped">
-		<thead>
-    		<tr>
-	      	<th>Date For</th>
-	      	<th>Created At</th>
-    	  	<th>Author</th>
-    		<th>Details</th>
-    		</tr>
-	  	</thead>
-  		<%=render 'shared/report_summary2'%>
-	</table>
+	<div id="tabs">
+		<ul>
+			<li><%=link_to "Reports Authored", "#tabs-1"%> </li>
+			<li><%=link_to "Reports Assigned to You for Review","#tabs-2"%> </li>
+		</ul>
+		<div id="tabs-1">
+			<table class = "table table-striped">
+			<thead>
+	    		<tr>
+		      	<th>Date For</th>
+		      	<th>Created At</th>
+	    	  	<th>Reviewer</th>
+	    		<th>Details</th>
+	    		</tr>
+		  	</thead>
+	  		<%=render 'shared/report_summary'%>
+		</table>
+		</div>
+		<div id="tabs-2">
+		<table class = "table table-striped">
+			<thead>
+	    		<tr>
+		      	<th>Date For</th>
+		      	<th>Created At</th>
+	    	  	<th>Author</th>
+	    		<th>Details</th>
+	    		</tr>
+		  	</thead>
+	  		<%=render 'shared/report_summary2'%>
+		</table>
+		</div>
+	</div>
 </div>

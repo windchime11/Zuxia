@@ -1,0 +1,25 @@
+<div class="span8">
+	<h3 class="strong">All Books</h3>
+	<table class = "table table-striped">
+		<thead>
+    		<tr>
+	      	<th>Name</th>
+	      	<th>Author</th>
+	      	<th>Edition</th>
+	      	<th>Year Published</th>
+    		</tr>
+	  	</thead>
+  		<tbody>
+			<% @books.each do |book|%>
+			<tr>
+			<td><%=book.name.to_s%></td>
+			<td><%=book.author.to_s%></td>
+			<td><%=book.edition.to_s%></td>
+			<td><%=book.pub_year.to_s%></td>
+			</tr>
+			<% end%>
+			<tr>			
+    	</tbody>
+	</table>
+
+</div>

@@ -24,8 +24,14 @@ function add_fields(link, association, content) {
   $(link).parent().before(content.replace(regexp, new_id));
 }
 
-function add_fields_to_table(link, association, content) {
+function add_fields_to_table(link, association, content, table_id) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g")
-  $('#Ent tr:last').after(content.replace(regexp, new_id));
+  $("#"+ table_id +" tr:last").after(content.replace(regexp, new_id));
 }
+
+$(function () {
+	$("#datepicker").datepicker();
+  $( "#tabs" ).tabs();
+});
+	

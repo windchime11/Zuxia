@@ -1,1 +1,99 @@
-<%= render 'shared/report_form'%>
+<%= form_for @report do |f|%>
+    <%=render 'shared/error_messages', :object => f.object %>
+     
+    <div class = "control-group">
+         <%= f.label "This report is for the day of" %>
+         <%= f.text_field :date_for, :id => "datepicker" %>
+         <%= f.label "You would like to have it reviewed by" %>
+         <%= collection_select :report, :reviewer_id, User.all, :id, :name, :prompt => "Please select reviewer" %>
+     </div>
+    <h3 class="span10 bottom-margin10">Coding</h3>
+
+    <div class="control-groups">
+        <table class = "table table-bordered" id=<%=  @coding_table_id%>>
+            <thead>
+                <tr>
+                    <th><%= 'Language' %></th>
+                    <th><%= 'Description' %></th>
+                    <th><%= 'Time spent (in hours)' %></th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <%= render :partial => 'coding_fields', :locals => {:f => f}%>
+        </table>
+        <p><%= link_to_add_fields_to_table "Add Coding", f, :codings,  @coding_table_id %></p>
+    </div> 
+
+    <h3 class="span10 bottom-margin10">Reading</h3>
+    <div class="control-groups">
+        <table class = "table table-bordered" id=<%= @book_table_id %>>
+            <colgroup>
+                <col id = "book" />
+                <col id = "b_sections" />
+                <col id = "b_starting_pp" />
+                <col id = "b_ending_pp" />
+                <col id = "b_hr" />
+                <col id = "b_remove" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th><%= 'Book' %></th>
+                    <th><%= 'Sections' %></th>
+                    <th><%= 'Starting page' %></th>
+                    <th><%= 'Ending page' %></th>
+                    <th><%= 'Time spent (in hours)' %></th>
+                    <th>Remove</th>
+                </tr>
+                <%= render :partial => 'book_reading_fields', :locals => {:f => f}%>
+            </thead>
+
+        </table>
+        <p><%= link_to "Can not find your book? Add it to the list!", new_book_path, :class => "btn"%> </p>
+        <p><%= link_to_add_fields_to_table "Add Reading", f, :book_readings,  @book_table_id %> </p>
+    </div> 
+
+    <h3 class="span10 bottom-margin10">Other Things</h3>
+    
+    <div class="control-groups">
+        <table class = "table table-bordered" id=<%= @misc_table_id%>>
+            <thead>
+                <tr>
+                    <th><%= 'Description' %></th>
+                    <th><%= 'Time spent (in hours)' %></th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <%= render :partial => 'misc_thing_fields', :locals => {:f => f}%>
+        </table>
+        <p><%= link_to_add_fields_to_table "Add Other Things", f, :misc_things, @misc_table_id %></p>
+    </div> 
+
+    <h3 class="span10 bottom-margin10">Vocabulary</h3>
+    <div class="control-groups">
+        <table class = "table table-bordered" id=<%=@voc_table_id%>>
+        <colgroup>
+            <col id = "word" />
+            <col id = "w_meaning" />
+            <col id = "w_syn" />
+            <col id = "sentence" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th><%= 'Word' %></th>
+                <th><%= 'Meaning' %></th>
+                <th><%= 'Synonyms' %></th>
+                <th><%= 'Sentence' %></th>
+                <th>Remove</th>
+            </tr>
+            <%= render :partial => 'en_word_fields', :locals => {:f => f}%>
+        </thead>
+        </table>
+        <p><%= link_to_add_fields_to_table "Add Word", f, :en_words, @voc_table_id %></p>
+
+    </div> 
+
+     <div class = "controls">
+        <%= f.submit "Submit", :class =>"btn btn-primary" %>
+     </div>
+    
+<% end%>

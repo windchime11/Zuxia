@@ -1,0 +1,16 @@
+ <%= f.fields_for :book_readings do |br_form| %>
+       <tr>
+            <td><%= br_form.collection_select :book_id, Book.all, :id, :name, :prompt => "Select Book"%>
+            </td>
+            <td><%= br_form.text_field :sections, :class =>"span3" %>
+            </td>
+            <td><%= br_form.text_field :starting_pp, :class =>"span1" %>
+            </td>
+            <td><%= br_form.text_field :ending_pp, :class =>"span1" %>
+            </td>
+            <td><%= br_form.text_field :duration_hr, :class =>"span2" %>
+            </td>
+            <td><%= link_to_remove_fields "remove", br_form%>
+            </td>
+        </tr>
+<% end %>

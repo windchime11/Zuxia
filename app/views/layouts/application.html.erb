@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Zuxia</title>
-  <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag 'jquery' %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	  <title>Zuxia</title>
+	  <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+	  <%= stylesheet_link_tag    "jquery-ui-1.8.17.custom", :media => "all" %>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= javascript_include_tag 'jquery' %>
+	  <%= javascript_include_tag 'jquery.ui.core' %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'shared/header' %>>
-<% unless flash.nil? %>
-<% flash.each do |key,value| %>
-<div class="alert alert-<%=key%>"><%= value%></div>
-<% end %>
-<% end %>
-<div class="span8 offset2 topm">
-<%= yield %>
-</div>
-<p><%= p params if Rails.env.development?%></p>
+	<%= render 'shared/header' %>>
+
+	<div class="span8 offset2 topm">
+		<% unless flash.nil? %>
+			<% flash.each do |key,value| %>
+				<div class="alert alert-<%=key%>"><%= value%></div>
+			<% end %>
+		<% end %>
+		<%= yield %>
+		<%= p params%>
+	</div>
 </body>
 </html>

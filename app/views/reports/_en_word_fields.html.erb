@@ -1,0 +1,15 @@
+ <%= f.fields_for :en_words do |word_form| %>
+       <tr class="wordfields">
+            <td><%= word_form.text_field :word, :class =>"span2" %>
+            </td>
+            <td><%= word_form.text_field :meaning %>
+            </td>
+            <td><%= word_form.text_field :synonyms, :class =>"span2" %>
+            </td>
+            <td><%= word_form.text_field :sentence%>
+            </td>
+            <td><%= link_to_remove_fields "remove", word_form%>
+            </td>
+        </tr>
+<% end %>
+ 

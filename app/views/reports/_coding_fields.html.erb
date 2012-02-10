@@ -1,0 +1,12 @@
+ <%= f.fields_for :codings do |c_form| %>
+       <tr class="wordfields">
+            <td><%= c_form.select :language, options_for_select([['Java',1],['Ruby',2]]) %>
+            </td>
+            <td><%= c_form.text_field :description %>
+            </td>
+            <td><%= c_form.text_field :duration_hr %>
+            </td>
+            <td><%= link_to_remove_fields "remove", c_form%>
+            </td>
+        </tr>
+<% end %>
