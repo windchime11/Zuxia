@@ -1,1 +1,2 @@
-This is Zuxia, a online reporting utility which helps with remote mentoring
+This is Zuxia(means underneath your feet in Chinese). It is an online reporting utility which helps with recordkeeping for developers as well as 
+for remote mentoring.
