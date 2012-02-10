@@ -1,5 +1,5 @@
  <%= f.fields_for :book_readings do |br_form| %>
-       <tr>
+      <tr>
             <td><%= br_form.collection_select :book_id, Book.all, :id, :name, :prompt => "Select Book"%>
             </td>
             <td><%= br_form.text_field :sections, :class =>"span3" %>
@@ -12,5 +12,5 @@
             </td>
             <td><%= link_to_remove_fields "remove", br_form%>
             </td>
-        </tr>
+      </tr>
 <% end %>

@@ -1,7 +1,7 @@
 require 'digest'
 class User < ActiveRecord::Base
 	attr_accessor :password
-	attr_accessible :name, :email,:password,:password_confirmation
+	attr_accessible :name, :email, :password, :password_confirmation
 
   has_many :reports, :dependent => :destroy,
                     :foreign_key => "author_id"
@@ -10,19 +10,18 @@ class User < ActiveRecord::Base
                        :foreign_key => "reviewer_id",
                        :class_name => "Report"
 
-
   email_allowed = /\A[+.\w\d\-\_]+@[a-z\d]+\.[a-z]+\z/i  
 
   validates :name, :presence => true,
                    :length   => {:maximum => 40}
                    
   validates :email, :presence => true,
-                    :format => {:with =>email_allowed},
+                    :format => {:with =>  email_allowed},
                     :uniqueness => {:case_sensitive => false}
   
   validates :password, :presence => true,
-                       :confirmation =>true,
-                       :length       =>{:within =>6..40}  
+                       :confirmation => true,
+                       :length  =>  {:within =>6..40}  
 
   before_save :encode_password
 

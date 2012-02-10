@@ -41,3 +41,16 @@ h3.bottom-margin10 {
 #word {
 	width: 10em;
 }
+
+#brtable {
+	clear: both;
+}
+#codingtable {
+	clear: both;
+}
+#misctable {
+	clear: both;
+}
+#voctable {
+	clear: both;
+}

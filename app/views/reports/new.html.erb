@@ -7,10 +7,10 @@
          <%= f.label "You would like to have it reviewed by" %>
          <%= collection_select :report, :reviewer_id, User.all, :id, :name, :prompt => "Please select reviewer" %>
      </div>
-    <h3 class="span10 bottom-margin10">Coding</h3>
 
+    <h3 class="span10 bottom-margin10">Coding</h3>
     <div class="control-groups">
-        <table class = "table table-bordered" id=<%=  @coding_table_id%>>
+        <table class = "table table-bordered" id="<%=@coding_table_id%>">
             <thead>
                 <tr>
                     <th><%= 'Language' %></th>
@@ -26,7 +26,7 @@
 
     <h3 class="span10 bottom-margin10">Reading</h3>
     <div class="control-groups">
-        <table class = "table table-bordered" id=<%= @book_table_id %>>
+        <table class = "table table-bordered" id="<%= @book_table_id%>">
             <colgroup>
                 <col id = "book" />
                 <col id = "b_sections" />
@@ -46,7 +46,6 @@
                 </tr>
                 <%= render :partial => 'book_reading_fields', :locals => {:f => f}%>
             </thead>
-
         </table>
         <p><%= link_to "Can not find your book? Add it to the list!", new_book_path, :class => "btn"%> </p>
         <p><%= link_to_add_fields_to_table "Add Reading", f, :book_readings,  @book_table_id %> </p>
@@ -55,7 +54,7 @@
     <h3 class="span10 bottom-margin10">Other Things</h3>
     
     <div class="control-groups">
-        <table class = "table table-bordered" id=<%= @misc_table_id%>>
+        <table class = "table table-bordered" id="<%= @misc_table_id%>">
             <thead>
                 <tr>
                     <th><%= 'Description' %></th>
@@ -70,7 +69,7 @@
 
     <h3 class="span10 bottom-margin10">Vocabulary</h3>
     <div class="control-groups">
-        <table class = "table table-bordered" id=<%=@voc_table_id%>>
+        <table class = "table table-bordered" id="<%=@voc_table_id%>">
         <colgroup>
             <col id = "word" />
             <col id = "w_meaning" />

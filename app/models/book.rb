@@ -4,7 +4,7 @@ class Book < ActiveRecord::Base
 
   	default_scope :order => 'books.created_at DESC'
   	
-	validates :name, :presence => true, :length => {:maximum => 140}
+	validates :name, :presence => true, :length => {:maximum => 100}
 	validates :author,   :presence => true, :length => {:maximum => 140}
 	
 end

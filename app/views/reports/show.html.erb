@@ -29,7 +29,7 @@
 			<td><%=@report.book_readings.map {|t| t.book_id}.join(",")%></td>
 			</tr>
 			<td>Coding</td>
-			<td><%=@report.codings.map {|t| t.description + " in " + t.language + "for " + t.duration_hr.to_s + " hours"}.join(",")%></td>
+			<td><%=@report.codings.map {|t| t.description + " in " + ["Java","Ruby"][t.language.to_i] + " for " + t.duration_hr.to_s + " hours"}.join(",")%></td>
 			</tr>
 			<td>Others</td>
 			<td><%=@report.misc_things.map {|t| t.description}.join(",")%></td>
