@@ -1,5 +1,5 @@
 class Report < ActiveRecord::Base
-	attr_accessible :date_for, :date_created,  :author_id,  :reviewer_id, :en_words_attributes, 
+	attr_accessible :date_for_str, :date_created,  :author_id,  :reviewer_id, :en_words_attributes, 
 					:book_readings_attributes, :codings_attributes, :misc_things_attributes
 
 	belongs_to :user, :foreign_key => "author_id"
@@ -21,6 +21,16 @@ class Report < ActiveRecord::Base
   	
 	validates :author_id, :presence => true
 	validates :reviewer_id, :presence => true
-	
 
+	def date_for_str
+		date_for.to_s
+	end
+	
+	def date_for_str=(str)
+		self.date_for = Chronic.parse(str)
+	rescue ArgumentError
+		flash[:error] = :date_for + "is invalid"
+	end
+
+	
 end

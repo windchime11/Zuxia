@@ -3,7 +3,7 @@
      
     <div class = "control-group">
          <%= f.label "This report is for the day of" %>
-         <%= f.text_field :date_for, :id => "datepicker" %>
+         <%= f.text_field :date_for_str, :id => "datepicker"%>
          <%= f.label "You would like to have it reviewed by" %>
          <%= collection_select :report, :reviewer_id, User.all, :id, :name, :prompt => "Please select reviewer" %>
      </div>

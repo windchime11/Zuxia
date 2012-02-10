@@ -20,7 +20,7 @@
 			<% end %>
 		<% end %>
 		<%= yield %>
-		<%= p params%>
+		<%= p params if Rails.env.development?%>
 	</div>
 </body>
 </html>
